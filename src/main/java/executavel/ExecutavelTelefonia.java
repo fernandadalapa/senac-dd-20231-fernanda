@@ -28,7 +28,6 @@ public class ExecutavelTelefonia {
 		//dbaEnderecos.excluir(end3);
 		
 		//CLIENTES
-		
 		Cliente pele = new Cliente(1, "Edson Arantes", "11122233344", telefonesDoPele, true, end1);
 		Cliente socrates = new Cliente(2,"Sócrates Brasileiro", "33322233344", telefonesDoSocrates, true, end2);
 		
