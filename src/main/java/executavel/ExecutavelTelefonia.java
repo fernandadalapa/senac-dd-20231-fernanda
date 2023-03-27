@@ -18,9 +18,9 @@ public class ExecutavelTelefonia {
 		
 		//ENDEREÇOS
 		Endereco end1 = new Endereco(1, "88000123", "10", "Mauro Ramos", "Centro", "Florianópolis", "SC");
-		Endereco end2 = new Endereco(2, "88000456", "20", "Lauro Linhares", "Centro", "Florianópolis", "SC");
-		EnderecoDAO dbaEnderecos = new EnderecoDAO();	
+		Endereco end2 = new Endereco(2, "88000456", "20", "Lauro Linhares", "Centro", "Florianópolis", "SC");	
 		Endereco end3 = new Endereco(3, "88000123", "Felipe Schmidt", "9", "Centro", "Florianópolis", "SC");
+		EnderecoDAO dbaEnderecos = new EnderecoDAO();
 		
 		//adicionando os endereços
 		dbaEnderecos.cadastrar(end1);

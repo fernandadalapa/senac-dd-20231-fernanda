@@ -35,3 +35,5 @@ CREATE TABLE `telefonia`.`endereco` (
     REFERENCES `telefonia`.`endereco` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+    
+    
