@@ -114,9 +114,7 @@ public class TelaCadastroCliente1 extends JFrame {
 					controller.inserir(novoCliente);
 				} catch () {
 					
-				}
-				
-				
+				}	
 			}
 		});
 		btnSalvar.setBounds(173, 193, 85, 21);

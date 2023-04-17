@@ -35,7 +35,7 @@ public class TelaListagemClientes {
 	private MaskFormatter mascaraCpf;
 	private JFormattedTextField txtCPF;
 	
-	//componentes externos -> dependência "LGoodDatePicker" foi adicionada no pom.xml
+	//dependência "LGoodDatePicker" foi adicionada no pom.xml
 	private DatePicker dtNascimentoInicial;
 	private DatePicker dtNascimentoFinal;
 	private JButton btnEditar;
@@ -127,7 +127,7 @@ public class TelaListagemClientes {
 		frmListagemDeClientes.getContentPane().add(btnBuscar);
 
 		tblClientes = new JTable();
-		this.limparTabelaClientes(); // Adicionei essa linha
+		this.limparTabelaClientes();
 
 		tblClientes.addMouseListener(new MouseAdapter() {
 			@Override
