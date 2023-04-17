@@ -67,7 +67,6 @@ public class ExecutavelTelefonia {
 		}
 		
 		
-		
 		Endereco endereco1 = new EnderecoController().consultarPorId(1);
 		ClienteController controladorDeClientes = new ClienteController();
 		
