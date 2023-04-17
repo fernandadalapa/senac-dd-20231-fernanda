@@ -13,6 +13,11 @@ public class TelaCadastroTelefone {
 
 	private JFrame frame;
 	private JTextField txtNumero;
+	private JButton btnSalvar;
+	private JCheckBox cbxOpcaoMovel;
+	private JLabel lblMovel;
+	private JLabel lblNumero;
+	private JLabel lblDdd;
 
 	
 	/**
@@ -48,19 +53,19 @@ public class TelaCadastroTelefone {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblDdd = new JLabel("DDD:");
+		lblDdd = new JLabel("DDD:");
 		lblDdd.setBounds(20, 25, 45, 13);
 		frame.getContentPane().add(lblDdd);
 		
-		JLabel lblNumero = new JLabel("Número:");
+		lblNumero = new JLabel("Número:");
 		lblNumero.setBounds(20, 75, 45, 13);
 		frame.getContentPane().add(lblNumero);
 		
-		JLabel lblMovel = new JLabel("Móvel:");
+		lblMovel = new JLabel("Móvel:");
 		lblMovel.setBounds(20, 125, 45, 13);
 		frame.getContentPane().add(lblMovel);
 		
-		JCheckBox cbxOpcaoMovel = new JCheckBox("Sim/Não");
+		cbxOpcaoMovel = new JCheckBox("Sim/Não");
 		cbxOpcaoMovel.setBounds(85, 121, 295, 21);
 		frame.getContentPane().add(cbxOpcaoMovel);
 		
@@ -73,7 +78,8 @@ public class TelaCadastroTelefone {
 		frame.getContentPane().add(txtNumero);
 		txtNumero.setColumns(10);
 		
-		JButton btnSalvar = new JButton("Salvar");
+		//trocar a primeira linha para "create field" SEMPRE, ou colocar as variáveis lá em cima, ex "private JButton btnSalvar" !!!!!!!!!!!!!!!!
+		btnSalvar = new JButton("Salvar");
 		btnSalvar.setBounds(170, 182, 85, 21);
 		frame.getContentPane().add(btnSalvar);
 	}

@@ -10,10 +10,12 @@ public class TelefoneController {
 	private TelefoneBO bo = new TelefoneBO();
 	
 	public Telefone inserir(Telefone novoTelefone) {
+		
 		return bo.inserir(novoTelefone);
 	}
 	
 	public boolean atualizar(Telefone telefoneAlterado) {
+		
 		return bo.atualizar(telefoneAlterado);
 	}
 	

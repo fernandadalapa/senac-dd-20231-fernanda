@@ -102,22 +102,22 @@ public class TelaCadastroCliente1 extends JFrame {
 		
 		//BOTÃO
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Cliente novoCliente = new Cliente();
-				novoCliente.setNome(txtNome.getText());
-				novoCliente.setCpf(txtCpf.getText());
-				novoCliente.setEndereco((Endereco)cbxEndereco.getSelectedItem());
-				
-				ClienteController controller = new ClienteController();
-				try {
-					controller.inserir(novoCliente);
-				} catch () {
-					
-				}	
-			}
-		});
-		btnSalvar.setBounds(173, 193, 85, 21);
-		frmCadastroDeClientes.getContentPane().add(btnSalvar);
+		//btnSalvar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				Cliente novoCliente = new Cliente();
+//				novoCliente.setNome(txtNome.getText());
+//				novoCliente.setCpf(txtCpf.getText());
+//				novoCliente.setEndereco((Endereco)cbxEndereco.getSelectedItem());
+//				
+//				ClienteController controller = new ClienteController();
+//				try {
+//					controller.inserir(novoCliente);
+//				} catch () {
+//					
+//				}	
+//			}
+//		});
+//		btnSalvar.setBounds(173, 193, 85, 21);
+//		frmCadastroDeClientes.getContentPane().add(btnSalvar);
 	}
 }

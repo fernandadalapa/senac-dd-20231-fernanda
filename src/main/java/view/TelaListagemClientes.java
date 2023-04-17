@@ -36,8 +36,8 @@ public class TelaListagemClientes {
 	private JFormattedTextField txtCPF;
 	
 	//dependência "LGoodDatePicker" foi adicionada no pom.xml
-	private DatePicker dtNascimentoInicial;
-	private DatePicker dtNascimentoFinal;
+//	private DatePicker dtNascimentoInicial;
+//	private DatePicker dtNascimentoFinal;
 	private JButton btnEditar;
 	private JLabel lblCpf;
 	private JButton btnBuscar;
@@ -64,7 +64,7 @@ public class TelaListagemClientes {
 
 			novaLinhaDaTabela[0] = c.getNome();
 			novaLinhaDaTabela[1] = c.getCpf();
-			novaLinhaDaTabela[2] = c.getEndereco().getEnderecoResumido();
+			//novaLinhaDaTabela[2] = c.getEndereco().getEnderecoResumido();
 			novaLinhaDaTabela[3] = c.getTelefones().size();
 			novaLinhaDaTabela[4] = c.isAtivo() ? "Sim" : "Não";
 
@@ -111,14 +111,14 @@ public class TelaListagemClientes {
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClienteSeletor seletor = new ClienteSeletor();
-				seletor.setNome(txtNome.getText());
-				seletor.setSobrenome(txtSobrenome.getText());
-				seletor.setDataNascimentoInicial(dtNascimentoInicial.getDate());
-				seletor.setDataNascimentoFinal(dtNascimentoFinal.getDate());
+//				ClienteSeletor seletor = new ClienteSeletor();
+//				seletor.setNome(txtNome.getText());
+//				seletor.setSobrenome(txtSobrenome.getText());
+//				seletor.setDataNascimentoInicial(dtNascimentoInicial.getDate());
+//				seletor.setDataNascimentoFinal(dtNascimentoFinal.getDate());
 
 				ClienteController controller = new ClienteController();
-				clientes = controller.listarClientes(seletor);
+//				clientes = controller.listarClientes(seletor);
 
 				atualizarTabelaClientes();
 			}
@@ -171,17 +171,17 @@ public class TelaListagemClientes {
 		lblDataNascimentoDe.setBounds(25, 60, 175, 10);
 		frmListagemDeClientes.getContentPane().add(lblDataNascimentoDe);
 
-		dtNascimentoInicial = new DatePicker();
-		dtNascimentoInicial.setBounds(150, 55, 450, 30);
-		frmListagemDeClientes.getContentPane().add(dtNascimentoInicial);
+//		dtNascimentoInicial = new DatePicker();
+//		dtNascimentoInicial.setBounds(150, 55, 450, 30);
+//		frmListagemDeClientes.getContentPane().add(dtNascimentoInicial);
 
 		lblAte = new JLabel("Até:");
 		lblAte.setBounds(25, 90, 175, 10);
 		frmListagemDeClientes.getContentPane().add(lblAte);
 
-		dtNascimentoFinal = new DatePicker();
-		dtNascimentoFinal.setBounds(150, 90, 450, 30);
-		frmListagemDeClientes.getContentPane().add(dtNascimentoFinal);
+//		dtNascimentoFinal = new DatePicker();
+//		dtNascimentoFinal.setBounds(150, 90, 450, 30);
+//		frmListagemDeClientes.getContentPane().add(dtNascimentoFinal);
 
 		JButton btnGerarPlanilha = new JButton("Gerar Planilha (Aula 12)");
 		btnGerarPlanilha.setEnabled(false);

@@ -11,13 +11,11 @@ private TelefoneDAO dao = new TelefoneDAO();
 	
 	public Telefone inserir(Telefone novoTelefone) {
 		novoTelefone.setAtivo(novoTelefone.getIdCliente() != null);
-		
 		return dao.cadastrar(novoTelefone);
 	}
 	
 	public boolean atualizar(Telefone telefoneAlterado) {
 		telefoneAlterado.setAtivo(telefoneAlterado.getIdCliente() != null);
-
 		return dao.atualizar(telefoneAlterado);
 	}
 	
