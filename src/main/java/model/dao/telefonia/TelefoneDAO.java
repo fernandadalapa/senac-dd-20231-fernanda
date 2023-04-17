@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.dao.Banco;
+import model.vo.telefonia.Cliente;
 import model.vo.telefonia.Endereco;
 import model.vo.telefonia.Telefone;
 
@@ -148,5 +151,99 @@ public class TelefoneDAO {
 			}
 			return excluir;
 		}
+
+
+
+
+		public List<Telefone> consultarTodos() {
+			List<Telefone> telefones = new ArrayList<Telefone>();
+			Connection conexao = Banco.getConnection();
+			String sql =  " SELECT * FROM TELEFONE ";
+			PreparedStatement query = Banco.getPreparedStatement(conexao, sql);
+			
+			try {
+				ResultSet resultado = query.executeQuery();
+				while(resultado.next()) {
+					Telefone telefoneConsultado = converterDeResultSetParaEntidade(resultado);
+					telefones.add(telefoneConsultado);
+				}
+			} catch (SQLException e) {
+				System.out.println("Erro ao buscar todos os telefones" 
+									+ "\n Causa: " + e.getMessage());	
+			} finally {
+				Banco.closePreparedStatement(query);
+				Banco.closeConnection(conexao);
+			}
+			
+			return telefones;
+		}
+
+
+
+		private Telefone converterDeResultSetParaEntidade(ResultSet resultado) throws SQLException  {
+			Telefone telefoneConsultado = new Telefone(); 
+			telefoneConsultado.setId(resultado.getInt("id"));
+			telefoneConsultado.setIdCliente(resultado.getInt("id_cliente"));
+			telefoneConsultado.setDdd(resultado.getString("ddd"));
+			telefoneConsultado.setNumero(resultado.getString("numero"));
+			telefoneConsultado.setAtivo(resultado.getBoolean("ativo"));
+			telefoneConsultado.setMovel(resultado.getBoolean("movel"));
+			return telefoneConsultado;
+		}
+
+
+		public List<Telefone> consultarPorIdCliente(Integer id) {
+			List<Telefone> telefones = new ArrayList<Telefone>();
+			Connection conexao = Banco.getConnection();
+			String sql =  " SELECT * FROM TELEFONE "
+					+ " WHERE IDCLIENTE = ? ";
+			PreparedStatement query = Banco.getPreparedStatement(conexao, sql);
+			
+			try {
+				query.setInt(1, id);
+				ResultSet resultado = query.executeQuery();
+				while(resultado.next()) {
+					Telefone telefoneConsultado = converterDeResultSetParaEntidade(resultado);
+					telefones.add(telefoneConsultado);
+				}
+			} catch (SQLException erro) {
+				System.out.println("Erro ao buscar todos os telefones do cliente informado" 
+									+ "\n Causa: " + erro.getMessage());	
+			} finally {
+				Banco.closePreparedStatement(query);
+				Banco.closeConnection(conexao);
+			}
+			
+			return telefones;
+		}
+
+
+		public void ativarTelefones(Integer idDono, List<Telefone> telefones) {
+			for (Telefone telefoneDoCliente : telefones) {
+				telefoneDoCliente.setIdCliente(idDono);
+				telefoneDoCliente.setAtivo(true);
+				if (telefoneDoCliente.getId() > 0) {
+					this.atualizar(telefoneDoCliente);
+				} else {
+					this.cadastrar(telefoneDoCliente);
+				}
+			}
+		}
 		
+		public void desativarTelefones(int idCliente) {
+			Connection conn = Banco.getConnection();
+			String sql = " UPDATE EXEMPLOS.TELEFONE "
+					   + " SET idcliente = NULL, ativo = 0 "
+					   + " WHERE IDCLIENTE = ? ";
+
+			PreparedStatement stmt = Banco.getPreparedStatement(conn, sql);
+
+			try {
+				stmt.setInt(1, idCliente);
+				stmt.executeUpdate();
+			} catch (SQLException e) {
+				System.out.println("Erro ao desativar telefone.");
+				System.out.println("Erro: " + e.getMessage());
+			}
+		}	
 }

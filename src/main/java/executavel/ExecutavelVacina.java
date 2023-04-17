@@ -28,11 +28,11 @@ public class ExecutavelVacina {
 		//PESSOAS
 		List<Pessoa> pessoas = new ArrayList<Pessoa>();
 		Pessoa valeria = new Pessoa(1, "Valéria", LocalDate.of(1990, 6, 10), "F", "123657894-10", 2);
-		Pessoa melissa = new Pessoa(2, "Melissa", LocalDate.of(2000, 3, 4), "F", "6549832917-27", 3);
+		Pessoa daniel = new Pessoa(2, "Daniel", LocalDate.of(2000, 3, 4), "F", "6549832917-27", 3);
 		
 		//ADICIONANDO AS PESSOAS
 		pessoas.add(valeria);
-		pessoas.add(melissa);
+		pessoas.add(daniel);
 		
 		
 	}

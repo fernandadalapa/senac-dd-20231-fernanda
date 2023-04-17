@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.dao.Banco;
+import model.vo.telefonia.Cliente;
 import model.vo.telefonia.Endereco;
 
 public class EnderecoDAO {
@@ -92,9 +95,6 @@ public class EnderecoDAO {
 		return atualizou;
 	}
 	
-	
-	
-	
 	public Endereco consultarPorId(int id) {
 		Endereco enderecoConsultado = null;
 		Connection conexao = Banco.getConnection();
@@ -107,24 +107,18 @@ public class EnderecoDAO {
 			ResultSet resultado = query.executeQuery();
 			
 			if(resultado.next()) {
-				enderecoConsultado = new Endereco();
-				enderecoConsultado.setId(resultado.getInt("id"));
-				enderecoConsultado.setCep(resultado.getString("cep"));
-				enderecoConsultado.setRua(resultado.getString("rua"));
-				enderecoConsultado.setBairro(resultado.getString("bairro"));
-				enderecoConsultado.setNumero(resultado.getString("numero"));
-				enderecoConsultado.setCidade(resultado.getString("cidade"));
-				enderecoConsultado.setEstado(resultado.getString("estado"));
+				enderecoConsultado = converterDeResultSetParaEntidade(resultado);
 			}
 		} catch (SQLException e) {
 			System.out.println("Erro ao buscar endereço com id: + " + id 
 								+ "\n Causa: " + e.getMessage());	
+		}finally {
+			Banco.closePreparedStatement(query);
+			Banco.closeConnection(conexao);
 		}
+		
 		return enderecoConsultado;
 	}
-	
-	
-	
 	
 	public boolean excluir(int id) {
 		boolean excluiu = false;
@@ -148,8 +142,40 @@ public class EnderecoDAO {
 		return excluiu;
 	}
 	
+	public List<Endereco> consultarTodos() {
+		List<Endereco> enderecos = new ArrayList<Endereco>();
+		Connection conexao = Banco.getConnection();
+		String sql =  " SELECT * FROM ENDERECO ";
+		PreparedStatement query = Banco.getPreparedStatement(conexao, sql);
+		
+		try {
+			ResultSet resultado = query.executeQuery();
+			while(resultado.next()) {
+				Endereco enderecoConsultado = converterDeResultSetParaEntidade(resultado);
+				enderecos.add(enderecoConsultado);
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao buscar todos os endereços" 
+								+ "\n Causa: " + e.getMessage());	
+		} finally {
+			Banco.closePreparedStatement(query);
+			Banco.closeConnection(conexao);
+		}
+		
+		return enderecos;
+	}
 	
-	
+	private Endereco converterDeResultSetParaEntidade(ResultSet resultado) throws SQLException {
+		Endereco enderecoConsultado = new Endereco(); 
+		enderecoConsultado.setId(resultado.getInt("id"));
+		enderecoConsultado.setCep(resultado.getString("cep"));
+		enderecoConsultado.setRua(resultado.getString("rua"));
+		enderecoConsultado.setBairro(resultado.getString("bairro"));
+		enderecoConsultado.setNumero(resultado.getString("numero"));
+		enderecoConsultado.setCidade(resultado.getString("cidade"));
+		enderecoConsultado.setEstado(resultado.getString("estado"));
+		return enderecoConsultado;
+	}
 	
 	
 }
