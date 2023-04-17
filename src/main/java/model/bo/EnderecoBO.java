@@ -30,7 +30,6 @@ private EnderecoDAO dao = new EnderecoDAO();
 	}
 	
 	public Endereco consultarPorCep(String cep) {
-		//TODO chamar viaCep
 		// https://gitlab.com/parg/ViaCEP
 		return null;
 	}

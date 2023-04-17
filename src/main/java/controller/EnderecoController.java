@@ -18,7 +18,7 @@ private EnderecoBO bo = new EnderecoBO();
 	}
 	
 	private void validarCamposObrigatorios(Endereco endereco) throws CampoInvalidoException{
-String mensagemValidacao = "";
+		String mensagemValidacao = "";
 		
 		mensagemValidacao += validarString(endereco.getCep(), "cep");
 		mensagemValidacao += validarString(endereco.getRua(), "rua");

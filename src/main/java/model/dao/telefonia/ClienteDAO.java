@@ -46,6 +46,7 @@ public class ClienteDAO {
 		return novoCliente;
 	}
 	
+	
 	public boolean atualizar(Cliente cliente) {
 		Connection conexao = Banco.getConnection();
 		String sql = " UPDATE CLIENTE SET NOME=?, CPF=?, ID_ENDERECO=?, ATIVO=? "
@@ -69,6 +70,7 @@ public class ClienteDAO {
 		
 		return registrosAlterados > 0;
 	}
+	
 	
 	public boolean excluir(int id) {
 		Connection conn = Banco.getConnection();
@@ -120,6 +122,7 @@ public class ClienteDAO {
 		return clienteBuscado;
 	}
 	
+	
 	public List<Cliente> consultarTodos() {
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		Connection conexao = Banco.getConnection();
@@ -144,6 +147,7 @@ public class ClienteDAO {
 		return clientes;
 	}
 	
+	
 	private Cliente montarClienteComResultadoDoBanco(ResultSet resultado) throws SQLException {
 		Cliente clienteBuscado = new Cliente();
 		clienteBuscado.setId(resultado.getInt("id"));
@@ -161,6 +165,7 @@ public class ClienteDAO {
 		
 		return clienteBuscado;
 	}
+	
 	
 	public boolean cpfJaUtilizado(String cpfBuscado) {
 		boolean cpfJaUtilizado = false;
@@ -187,6 +192,7 @@ public class ClienteDAO {
 		return cpfJaUtilizado;
 	}
 
+	
 	public int contarClientesQueResidemNoEndereco(Integer idEndereco) {
 		int totalClientesDoEnderecoBuscado = 0;
 		Connection conexao = Banco.getConnection();

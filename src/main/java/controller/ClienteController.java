@@ -15,14 +15,13 @@ public class ClienteController {
 private ClienteBO bo = new ClienteBO();
 	
 	public Cliente inserir(Cliente novoCliente) throws CpfJaUtilizadoException, 
-			EnderecoInvalidoException, CampoInvalidoException {
+		EnderecoInvalidoException, CampoInvalidoException {
 
 		this.validarCamposObrigatorios(novoCliente);
 		return bo.inserir(novoCliente);
 	}
 	
 	public boolean atualizar(Cliente clienteAlterado) throws EnderecoInvalidoException, CpfAlteradoException {
-		//TODO validar o preenchimento dos campos obrigatórios
 		return bo.atualizar(clienteAlterado);
 	}
 	
@@ -61,7 +60,6 @@ private ClienteBO bo = new ClienteBO();
 //				Integer.valueOf(c.getCpf());
 //			} catch (NumberFormatException ex) {
 //				
-//				//TODO conferir
 //				validacao += "CPF deve possuir somente números\n";
 //			}
 		}

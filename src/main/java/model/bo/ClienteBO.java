@@ -60,7 +60,6 @@ private ClienteDAO dao = new ClienteDAO();
 	 * @return se excluiu ou não o cliente
 	 */
 	public boolean excluir(int id) throws ClienteComTelefoneException {
-		//FORMA 1 DE RESOLUÇÃO
 		Cliente clienteBuscado = dao.consultarPorId(id);
 		
 		if(!clienteBuscado.getTelefones().isEmpty()) {

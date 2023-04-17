@@ -62,9 +62,7 @@ public class EnderecoDAO {
 		return novoEndereco;
 	}
 	
-	
-	
-	
+
 	public boolean atualizar(Endereco enderecoEditado) {
 		boolean atualizou = false;
 		Connection conexao = Banco.getConnection();
@@ -95,6 +93,7 @@ public class EnderecoDAO {
 		return atualizou;
 	}
 	
+	
 	public Endereco consultarPorId(int id) {
 		Endereco enderecoConsultado = null;
 		Connection conexao = Banco.getConnection();
@@ -120,6 +119,7 @@ public class EnderecoDAO {
 		return enderecoConsultado;
 	}
 	
+	
 	public boolean excluir(int id) {
 		boolean excluiu = false;
 		
@@ -141,6 +141,7 @@ public class EnderecoDAO {
 		}
 		return excluiu;
 	}
+	
 	
 	public List<Endereco> consultarTodos() {
 		List<Endereco> enderecos = new ArrayList<Endereco>();
@@ -165,6 +166,7 @@ public class EnderecoDAO {
 		return enderecos;
 	}
 	
+	
 	private Endereco converterDeResultSetParaEntidade(ResultSet resultado) throws SQLException {
 		Endereco enderecoConsultado = new Endereco(); 
 		enderecoConsultado.setId(resultado.getInt("id"));
@@ -176,6 +178,5 @@ public class EnderecoDAO {
 		enderecoConsultado.setEstado(resultado.getString("estado"));
 		return enderecoConsultado;
 	}
-	
 	
 }

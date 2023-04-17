@@ -67,9 +67,7 @@ public class TelefoneDAO {
 			}
 			return novoTelefone;
 		}
-		
-		
-		
+
 		
 		public boolean atualizar(Telefone telefoneAtualizado) {
 			boolean atualizado = false;
@@ -99,9 +97,7 @@ public class TelefoneDAO {
 			return atualizado;
 		}
 		
-		
-		
-		
+
 		public Telefone consultarPorId(int id) {
 			Telefone telefoneConsultado = null;
 			Connection conexao = Banco.getConnection();
@@ -129,9 +125,7 @@ public class TelefoneDAO {
 			return telefoneConsultado;
 		}
 		
-		
-		
-		
+
 		public boolean excluir(int id) {
 			boolean excluir = false;
 			Connection conexao = Banco.getConnection();
@@ -151,8 +145,6 @@ public class TelefoneDAO {
 			}
 			return excluir;
 		}
-
-
 
 
 		public List<Telefone> consultarTodos() {
@@ -177,7 +169,6 @@ public class TelefoneDAO {
 			
 			return telefones;
 		}
-
 
 
 		private Telefone converterDeResultSetParaEntidade(ResultSet resultado) throws SQLException  {
@@ -229,6 +220,7 @@ public class TelefoneDAO {
 				}
 			}
 		}
+		
 		
 		public void desativarTelefones(int idCliente) {
 			Connection conn = Banco.getConnection();
