@@ -14,6 +14,7 @@ public class TelaCadastroTelefone {
 	private JFrame frame;
 	private JTextField txtNumero;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -37,6 +38,7 @@ public class TelaCadastroTelefone {
 		initialize();
 	}
 
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -75,4 +77,5 @@ public class TelaCadastroTelefone {
 		btnSalvar.setBounds(170, 182, 85, 21);
 		frame.getContentPane().add(btnSalvar);
 	}
+	
 }

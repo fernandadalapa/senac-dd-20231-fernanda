@@ -152,8 +152,6 @@ public class TelaCadastroEndereco extends JFrame {
 		});
 		btnSalvar.setBounds(130, 170, 100, 23);
 		frmCadastroDeEndereco.getContentPane().add(btnSalvar);
-
-		
 	}
 
 }

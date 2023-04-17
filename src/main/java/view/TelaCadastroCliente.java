@@ -128,4 +128,5 @@ public class TelaCadastroCliente extends JFrame {
 		});
 		frmNovoCliente.getContentPane().add(btnSalvar);
 	}
+	
 }

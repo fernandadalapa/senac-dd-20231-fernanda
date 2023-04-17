@@ -102,4 +102,5 @@ public class TelaListagemEnderecos {
 		tblEnderecos.setBounds(15, 70, 655, 400);
 		frmListagemDeEnderecos.getContentPane().add(tblEnderecos);
 	};
+	
 }
