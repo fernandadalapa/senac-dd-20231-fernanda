@@ -183,7 +183,7 @@ public class TelaListagemClientes {
 //		dtNascimentoFinal.setBounds(150, 90, 450, 30);
 //		frmListagemDeClientes.getContentPane().add(dtNascimentoFinal);
 
-		JButton btnGerarPlanilha = new JButton("Gerar Planilha (Aula 12)");
+		JButton btnGerarPlanilha = new JButton("Gerar Planilha");
 		btnGerarPlanilha.setEnabled(false);
 		
 		btnGerarPlanilha.addActionListener(new ActionListener() {

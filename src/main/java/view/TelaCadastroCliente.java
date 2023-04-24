@@ -28,7 +28,6 @@ import model.vo.telefonia.Endereco;
 public class TelaCadastroCliente extends JFrame {
 
 	private JPanel contentPane;
-	private JFrame frmNovoCliente;
 	private JLabel lblNome;
 	private JLabel lblCpf;
 	private JLabel lblEndereco;
@@ -59,35 +58,37 @@ public class TelaCadastroCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCadastroCliente() throws ParseException{
+		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		mascaraCpf = new MaskFormatter("###.###.###-##");
 		mascaraCpf.setValueContainsLiteralCharacters(false);
 		
 		txtCpf = new JFormattedTextField(mascaraCpf);
 		txtCpf.setBounds(85, 60, 300, 20);
-		frmNovoCliente.getContentPane().add(txtCpf);
+		this.getContentPane().add(txtCpf);
 		
 		lblNome = new JLabel("Nome:");
 		lblNome.setBounds(25, 20, 50, 14);
-		frmNovoCliente.getContentPane().add(lblNome);
+		this.getContentPane().add(lblNome);
 		
 		lblCpf = new JLabel("CPF:");
 		lblCpf.setBounds(25, 60, 50, 14);
-		frmNovoCliente.getContentPane().add(lblCpf);
+		this.getContentPane().add(lblCpf);
 		
 		lblEndereco = new JLabel("Endereço:");
 		lblEndereco.setBounds(25, 100, 50, 14);
-		frmNovoCliente.getContentPane().add(lblEndereco);
+		this.getContentPane().add(lblEndereco);
 		
 		txtNome = new JTextField();
 		txtNome.setBounds(85, 20, 300, 20);
-		frmNovoCliente.getContentPane().add(txtNome);
+		this.getContentPane().add(txtNome);
 		txtNome.setColumns(10);
 		
 		EnderecoController endController = new EnderecoController();
@@ -95,9 +96,11 @@ public class TelaCadastroCliente extends JFrame {
 		
 		cbEndereco = new JComboBox(enderecosCadastrados.toArray());
 		cbEndereco.setBounds(85, 100, 300, 22);
-		frmNovoCliente.getContentPane().add(cbEndereco);
+		this.getContentPane().add(cbEndereco);
 		
 		btnSalvar = new JButton("Salvar");
+		btnSalvar.setSize(100, 14);
+		btnSalvar.setLocation(158, 169);
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Cliente novoCliente = new Cliente();
@@ -126,7 +129,6 @@ public class TelaCadastroCliente extends JFrame {
 				}
 			}
 		});
-		frmNovoCliente.getContentPane().add(btnSalvar);
+		this.getContentPane().add(btnSalvar);
 	}
-	
 }
